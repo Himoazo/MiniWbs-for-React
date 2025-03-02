@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,7 @@ namespace MiniWbs.Controllers
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutProduct(int id, ProductDTO product)
         {
             if (!ModelState.IsValid || product is null)
@@ -86,6 +88,7 @@ namespace MiniWbs.Controllers
 
         // POST: api/Products
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Product>> PostProduct(ProductDTO product)
         {
             if (!ModelState.IsValid || product is null)
@@ -111,6 +114,7 @@ namespace MiniWbs.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
