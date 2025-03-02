@@ -26,6 +26,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
+//Health
+builder.Services.AddHealthChecks();
+
 //Identity password settings
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -99,6 +102,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapHealthChecks("/health");
+app.MapHealthChecks("/healthz");
 
 app.Run();
