@@ -1,4 +1,4 @@
-# Mini WMS 
+# Mini Lagerhanteringssystem REST API
 
 Denna applikation är en REST API för ett minimalt lagerhanteringssystem.
 
@@ -37,11 +37,11 @@ git clone https://github.com/Himoazo/MiniWbs-for-React.git
 
 ## API Endpoints
 
-POST `/api/account/login`
-POST `/api/account/register`
-GET `/api/account/me`
-GET `/api/Products`
-POST `/api/Products`
-GET `/api/Products/{id}`
-PUT `/api/Products/{id}`
-DELETE `/api/Products/{id}`
+* POST `/api/account/login`
+* POST `/api/account/register`
+* GET `/api/account/me`
+* GET `/api/Products`
+* POST `/api/Products`
+* GET `/api/Products/{id}`
+* PUT `/api/Products/{id}`
+* DELETE `/api/Products/{id}`
