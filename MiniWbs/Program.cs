@@ -102,6 +102,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapHealthChecks("/");
+app.MapHealthChecks("/health");
 app.MapHealthChecks("/healthz");
 
 app.Run();
