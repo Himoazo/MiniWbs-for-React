@@ -2,18 +2,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copy everything first to ensure the csproj file is there
+# Copy everything
 COPY . .
 
 # Restore dependencies
-RUN dotnet restore "MiniWbs.csproj"
+RUN dotnet restore "MiniWbs/MiniWbs.csproj"
 
 # Build the application
-RUN dotnet build "MiniWbs.csproj" -c Release -o /app/build
+RUN dotnet build "MiniWbs/MiniWbs.csproj" -c Release -o /app/build
 
 # Publish the application
 FROM build AS publish
-RUN dotnet publish "MiniWbs.csproj" -c Release -o /app/publish
+RUN dotnet publish "MiniWbs/MiniWbs.csproj" -c Release -o /app/publish
 
 # Build the runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
