@@ -20,8 +20,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# Use PORT environment variable for Railway compatibility
-ENV ASPNETCORE_URLS=http://+:${PORT:-8080}
+# Expose the port the app runs on
+EXPOSE 8080
 
 # Set non-root user for security
 RUN adduser --disabled-password --gecos "" appuser && chown -R appuser /app
