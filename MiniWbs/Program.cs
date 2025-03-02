@@ -37,7 +37,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 }
 ).AddEntityFrameworkStores<ApplicationDbContext>();
 
-// JWT inställningar
+// JWT instï¿½llningar
 
 builder.Services.AddAuthentication(options =>
 {
@@ -64,7 +64,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-//Cors inställningar, acceptera alla origins
+//Cors instï¿½llningar, acceptera alla origins
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(
@@ -98,5 +98,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHealthChecks("/health");
 
 app.Run();
